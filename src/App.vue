@@ -6,7 +6,7 @@
       </div>
       <div class="text-center my-3">[intro text]</div>
       <div class="text-center my-3 text-lg font-bold">Scroll / Click Here to begin</div>
-      <div class="text-center my-3 text-2xl"><i class="fas fa-arrow-circle-down" /></div>
+      <div class="text-center my-3 cursor-pointer" @click="scrollToSection"><i class="fas fa-arrow-circle-down text-3xl" /></div>
     </div>
 
     <!--  Timeline section  -->

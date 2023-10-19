@@ -43,18 +43,21 @@
         <input id="VerticalSlider" v-model="currentSection" type="range" min="0" :max="sectionIds.length - 1" step="1" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 w-[360px] h-1 bg-gray-200 rounded-lg appearance-none cursor-pointer rotate-90" @change="scrollToSection">
       </div>
       <div>2023</div>
-      <div><i class="fas fa-chevron-up px-6 py-4 bg-black rounded-xl my-1" /></div>
-      <div><i class="fas fa-chevron-down px-6 py-4 bg-black rounded-xl my-1" /></div>
+      <div class="cursor-pointer" @click="prevSection">
+        <i class="fas fa-chevron-up px-6 py-4 bg-black rounded-xl my-1" /></div>
+      <div class="cursor-pointer" @click="nextSection">
+        <i class="fas fa-chevron-down px-6 py-4 bg-black rounded-xl my-1" /></div>
 
-      <div>Back to top</div>
+      <div class="cursor-pointer" @click="scrollToTop">Back to top</div>
     </div>
   </main>
 </template>
 <script setup>
 import { ERA_DATA, YEAR_DATA } from "@/assets/data"
-import { computed, ref } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref } from "vue";
 
 const currentSection = ref(0)
+const disableSync = ref(false)
 
 const sectionIds = computed(() => {
   let ids = []
@@ -68,9 +71,47 @@ const sectionIds = computed(() => {
 })
 
 function scrollToSection () {
+  disableSync.value = true
   const section = document.getElementById(sectionIds.value[currentSection.value])
-  section.scrollIntoView({behavior: "smooth"})
+  section.scrollIntoView({ behavior: "smooth" })
+  setTimeout(() => {
+    disableSync.value = false
+  }, 600)
 }
+
+function scrollToTop () {
+  window.scrollTo({ top: 0, behavior: "smooth" })
+}
+
+function nextSection () {
+  if (currentSection.value === sectionIds.value.length - 1 || disableSync.value) return
+  currentSection.value++
+  scrollToSection()
+}
+
+function prevSection () {
+  if (currentSection.value === 0 || disableSync.value) return
+  currentSection.value--
+  scrollToSection()
+}
+
+function syncSideNav () {
+  if (disableSync.value) return
+  for (let i = 0; i < sectionIds.value.length; i++) {
+    const section = document.getElementById(sectionIds.value[i])
+    if (section.getBoundingClientRect().top >= 0) {
+      currentSection.value = i
+      return
+    }
+  }
+}
+
+onMounted(() => {
+  scrollToTop()
+  window.addEventListener('scroll', syncSideNav)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', syncSideNav)
+})
 </script>
-<style>
-</style>

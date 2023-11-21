@@ -1,15 +1,14 @@
 export const TITLE = 'A Timeline of Colonisation of the First Nations of Australia'
 
 export const INTRO_TEXT = [
-  'The process of British colonisation, dispossession, and genocide against the Aboriginal and Torres Strait Islanders was long and complex.',
-  'This timeline is an attempt to introduce readers to a general overview of colonisation and is not intended to be comprehensive or definitive.'
+  'The process of British colonisation, dispossession, and genocide against the Aboriginal and Torres Strait Islanders was long and complex. This timeline is an attempt to introduce readers to a general overview of colonisation and is not intended to be comprehensive or definitive.'
 ]
 
 export const ERA_DATA = [
   {
-    id: 0,
+    id: 'bce',
     name: 'Aboriginal Land',
-    yearText: '65,000 BCE - 1770',
+    yearText: 'BCE 65,000 - 1770',
     isSubEra: false,
     gapAfter: 3,
     summary: [
@@ -18,7 +17,7 @@ export const ERA_DATA = [
     ]
   },
   {
-    id: 1,
+    id: 'invasion',
     name: 'Invasion and Colonisation',
     yearText: '1770-1890',
     isSubEra: false,
@@ -30,7 +29,7 @@ export const ERA_DATA = [
     ]
   },
   {
-    id: 2,
+    id: 'wars',
     name: 'Frontier Wars',
     yearText: '',
     isSubEra: true,
@@ -41,7 +40,7 @@ export const ERA_DATA = [
     ]
   },
   {
-    id: 3,
+    id: 'segregation',
     name: '"Protection" and Segregation',
     yearText: '1860-1900',
     isSubEra: false,
@@ -52,7 +51,7 @@ export const ERA_DATA = [
     ]
   },
   {
-    id: 4,
+    id: 'assimilation',
     name: 'Assimilation',
     yearText: '1910-1950s',
     isSubEra: false,
@@ -64,7 +63,7 @@ export const ERA_DATA = [
     ]
   },
   {
-    id: 5,
+    id: 'stolen',
     name: 'The Stolen Generations',
     yearText: '1910s-1970s',
     isSubEra: false,
@@ -77,7 +76,7 @@ export const ERA_DATA = [
     ]
   },
   {
-    id: 6,
+    id: 'activism',
     name: 'Activism and Integration',
     yearText: '1960s-1990s',
     isSubEra: false,
@@ -88,7 +87,7 @@ export const ERA_DATA = [
     ]
   },
   {
-    id: 7,
+    id: 'reconciliation',
     name: 'Reconciliation and Self-Determination',
     yearText: '1991-present',
     isSubEra: false,
@@ -103,29 +102,29 @@ export const ERA_DATA = [
 
 export const YEAR_DATA = [
   {
-    eraId: 0,
+    eraId: 'bce',
     gap: 2,
-    yearText: '65,000 BCE',
+    yearText: 'BCE 65,000',
     name: '',
     details: ['Earliest known evidence of Aboriginal civilisation']
   },
 
   {
-    eraId: 1,
+    eraId: 'invasion',
     gap: 5,
     yearText: '1770',
     name: '',
     details: ['James Cook arrives at Botany Bay and claims possession of Australia for Britain']
   },
   {
-    eraId: 1,
+    eraId: 'invasion',
     gap: -5,
     yearText: '1788',
     name: '',
     details: ['The First Fleet arrives in Sydney Harbour on January 24, 1788']
   },
   {
-    eraId: 1,
+    eraId: 'invasion',
     gap: 1,
     yearText: '1834',
     name: '',
@@ -136,14 +135,14 @@ export const YEAR_DATA = [
   },
 
   {
-    eraId: 2,
+    eraId: 'wars',
     gap: 3,
     yearText: '1824-1830',
     name: '',
     details: ['Tasmanian \'Black War\'. Aboriginal population forcibly located to Flinders Island, where most die due to poor conditions.']
   },
   {
-    eraId: 2,
+    eraId: 'wars',
     gap: -5,
     yearText: '1838',
     name: '',
@@ -151,21 +150,21 @@ export const YEAR_DATA = [
   },
 
   {
-    eraId: 3,
+    eraId: 'segregation',
     gap: 3,
     yearText: '1860',
     name: '',
     details: ['Official enquiry into Aboriginal welfare recommends the creation of missions, reserves, and a Board to control and regulate Aboriginal lives.']
   },
   {
-    eraId: 3,
+    eraId: 'segregation',
     gap: -6,
     yearText: '1881',
     name: '',
     details: ['Parliamentary inquiry into poor conditions at Corranderrk Reserve. Aboriginal residents call for land rights and self-determination.']
   },
   {
-    eraId: 3,
+    eraId: 'segregation',
     gap: 1,
     yearText: '1901',
     name: '',
@@ -175,21 +174,21 @@ export const YEAR_DATA = [
   },
 
   {
-    eraId: 4,
+    eraId: 'assimilation',
     gap: 3,
     yearText: '1911',
     name: '',
     details: ['Aboriginies Act 1911 (SA) passed. Removal of \'mixed descent\' children begins.']
   },
   {
-    eraId: 4,
+    eraId: 'assimilation',
     gap: 1,
     yearText: '1938',
     name: '',
     details: ['Aboriginal Day of Mourning and Protest held in Sydney on January 26th. Eventually becomes a week-long celebration in July, now known as NAIDOC Week.']
   },
   {
-    eraId: 4,
+    eraId: 'assimilation',
     gap: 1,
     yearText: '1956',
     name: '',
@@ -200,7 +199,7 @@ export const YEAR_DATA = [
   },
 
   {
-    eraId: 6,
+    eraId: 'activism',
     gap: 3,
     yearText: '1966',
     name: '',
@@ -212,21 +211,21 @@ export const YEAR_DATA = [
     ]
   },
   {
-    eraId: 6,
+    eraId: 'activism',
     gap: -16,
     yearText: '1967',
     name: '',
     details: ['Over 90% of Australians vote YES in referendum to amend the Constitution. Aboriginal and Torres Strait Islander people included in Census for the first time.']
   },
   {
-    eraId: 6,
+    eraId: 'activism',
     gap: 3,
     yearText: '1985',
     name: '',
     details: ['Uluru handed back to the Anangu people after decades of lobbying.']
   },
   {
-    eraId: 6,
+    eraId: 'activism',
     gap: -5,
     yearText: '1988',
     name: '',
@@ -234,35 +233,35 @@ export const YEAR_DATA = [
   },
 
   {
-    eraId: 7,
+    eraId: 'reconciliation',
     gap: 3,
     yearText: '1992',
     name: '',
     details: ['High Court of Australia\'s Mabo decision formally recognises native title and renders terra nullius a legal fiction.']
   },
   {
-    eraId: 7,
+    eraId: 'reconciliation',
     gap: 1,
     yearText: '1997',
     name: '',
     details: ['\'Bringing Them Home\' report released by the National Inquiry into the Separation of Aboriginal and Torres Strait Island Children from Their Families. Most of its 54 recommendations are ignored.']
   },
   {
-    eraId: 7,
+    eraId: 'reconciliation',
     gap: 3,
     yearText: '2008',
     name: '',
     details: ['Prime Minister Kevin Rudd formally apologises on behalf of the Government for creating the Stolen Generations.']
   },
   {
-    eraId: 7,
+    eraId: 'reconciliation',
     gap: 1,
     yearText: '2017',
     name: '',
     details: ['Uluru Statement from the Heart born from a series of regional dialogues held across the country.']
   },
   {
-    eraId: 7,
+    eraId: 'reconciliation',
     gap: 1,
     yearText: '2023',
     name: '',

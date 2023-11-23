@@ -88,19 +88,20 @@
 
 
     <div v-if="showMediaModal" class="fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black/80 backdrop-blur-sm" aria-modal="true" tabindex="-1">
-      <div id="modal" class="flex max-h-[90vh] w-11/12 max-w-[90%] flex-col overflow-x-hidden overflow-y-scroll rounded p-4">
+      <div id="modal" class="max-h-[95vh] w-11/12 p-4">
         <header class="flex justify-end opacity-50 hover:opacity-100 mb-2">
           <div class="flex justify-center w-6 h-6 rounded-full bg-gray-200">
-            <i class="far fa-times text-brand-darkblue cursor-pointer my-auto" @click="closeMediaModal" /></div>
+            <i class="far fa-times text-brand-darkblue cursor-pointer my-auto" @click="closeMediaModal" />
+          </div>
         </header>
-        <div class="flex-1 overflow-auto">
-          <img v-if="currentMedia && currentMedia.type === 'image'" :src="currentMedia.src" alt="" class="mx-auto">
-          <div v-if="currentMedia && currentMedia.type === 'play-circle'" class="relative pb-[56.25%] h-0 w-full">
-            <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${currentMedia.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
+        <div class="flex justify-center">
+          <img v-if="currentMedia && currentMedia.type === 'image'" :src="currentMedia.src" alt="" class="w-10/12 max-w-max max-h-[70vh]">
+          <div v-if="currentMedia && currentMedia.type === 'play-circle'" class="relative pb-[56.25%] h-0 w-[100%]">
+            <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${currentMedia.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[95%] h-[95%] top-0 left-1/2 -translate-x-1/2" />
           </div>
-          <div v-if="currentMedia && currentMedia.text" class="text-white text-center mt-2 px-2">
-            <p v-for="(line, index) in currentMedia.text" :class="currentMedia.text.length > 1 && index === currentMedia.text.length - 1 ? 'italic' : ''">{{ line }}</p>
-          </div>
+        </div>
+        <div v-if="currentMedia && currentMedia.text" class="text-white text-center text-base leading-5 mt-2 px-2">
+          <p v-for="(line, index) in currentMedia.text" :class="currentMedia.text.length > 1 && index === currentMedia.text.length - 1 ? 'italic' : ''">{{ line }}</p>
         </div>
       </div>
     </div>

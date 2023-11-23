@@ -67,12 +67,12 @@ export const ERA_DATA = [
     name: 'The Stolen Generations',
     yearText: '1910s-1970s',
     isSubEra: false,
-    gapAfter: 1,
+    gapAfter: 0.5,
     summary: [
       'The Stolen Generations refer to the forcible removal of Aboriginal and Torres Strait Islander children from their families. Children were taken based on the assimilation polices which claimed that the lives of Aboriginal children would be improved if they became part of white society. This process was also called ‘natural elimination’.',
       'Children taken were denied access to their families, communities, cultures and taught to reject their heritage in favour of the white culture. Names were changed and language was forbidden.',
       'An estimation of 10-33% of Aboriginal and Torres Strait children were separated from their familied in just 60 years.  Intergenerational trauma has continued to severely impact those taken and their descendents.',
-      'In 1980, government link-up services were established to support members of the Stolen Generations in their search to reconnect with their families. Testimonies of the Stolen Generations can be heard and read here: https://www.stolengenerationstestimonies.com/'
+      'In 1980, government link-up services were established to support members of the Stolen Generations in their search to reconnect with their families. Testimonies of the Stolen Generations can be heard and read here: <a href="https://www.stolengenerationstestimonies.com/" class="underline hover:text-brand-midblue" target="_blank" rel="noopener noreferrer">https://www.stolengenerationstestimonies.com/</a>'
     ]
   },
   {
@@ -106,7 +106,13 @@ export const YEAR_DATA = [
     gap: 2,
     yearText: 'BCE 65,000',
     name: '',
-    details: ['Earliest known evidence of Aboriginal civilisation']
+    details: ['Earliest known evidence of Aboriginal civilisation'],
+    media: {
+      type: 'image',
+      src: '/images/bce65000.jpg',
+      text: ['Piece of ochre used in what is now Kakadu National Park, 53,000–59,000 years ago.',
+        'Museum and Gallery of the Northern Territory']
+    }
   },
 
   {
@@ -114,7 +120,9 @@ export const YEAR_DATA = [
     gap: 5,
     yearText: '1770',
     name: '',
-    details: ['James Cook arrives at Botany Bay and claims possession of Australia for Britain']
+    details: ['James Cook arrives at Botany Bay and claims possession of Australia for Britain'],
+    media: { type: 'play-circle', src: 'q_cOJgpk4ko?start=85&end=120', text: [] }
+
   },
   {
     eraId: 'invasion',
@@ -131,7 +139,13 @@ export const YEAR_DATA = [
     details: [
       'South Australia established as a British colony.',
       'The Letters Patent declare that Aboriginal occupation of lands must not be interrupted; this is ignored in practice.'
-    ]
+    ],
+    media: {
+      type: 'image',
+      src: '/images/1834.jpg',
+      text: ['Letters Patent under the Great Seal of the United Kingdom erecting and establishing the Province of South Australia and fixing the boundaries thereof, 19 February 1836',
+        'State Records of South Australia SRSA: GRG 2/64']
+    }
   },
 
   {
@@ -161,7 +175,11 @@ export const YEAR_DATA = [
     gap: -6,
     yearText: '1881',
     name: '',
-    details: ['Parliamentary inquiry into poor conditions at Corranderrk Reserve. Aboriginal residents call for land rights and self-determination.']
+    details: ['Parliamentary inquiry into poor conditions at Corranderrk Reserve. Aboriginal residents call for land rights and self-determination.'],
+    media: {
+      type: 'image', src: '/images/1881.jpg', text: ['William Barak and the Aboriginal community of Coranderrk.',
+        'State Library of Victoria 1903SLV']
+    }
   },
   {
     eraId: 'segregation',
@@ -185,7 +203,13 @@ export const YEAR_DATA = [
     gap: 1,
     yearText: '1938',
     name: '',
-    details: ['Aboriginal Day of Mourning and Protest held in Sydney on January 26th. Eventually becomes a week-long celebration in July, now known as NAIDOC Week.']
+    details: ['Aboriginal Day of Mourning and Protest held in Sydney on January 26th. Eventually becomes a week-long celebration in July, now known as NAIDOC Week.'],
+    media: {
+      type: 'image',
+      src: '/images/1938.jpg',
+      text: ['Left to right: William (Bill) Ferguson, Jack Kinchela, Isaac Ingram, Doris Williams, Esther Ingram, Arthur Williams Jr, Phillip Ingram, unknown, Louisa Agnes Ingram holding daughter Olive, Jack Patten.',
+        'Mitchell Library, State Library of New South Wales Q 059/9']
+    }
   },
   {
     eraId: 'assimilation',
@@ -195,7 +219,12 @@ export const YEAR_DATA = [
     details: [
       'Britain begins atomic weapons testing program in Australia.',
       'Aboriginal communities severely impacted by fallout, contamination, and displacement, still suffer higher cancer rates than the general population.'
-    ]
+    ],
+    media: {
+      type: 'image',
+      src: '/images/1956.jpg',
+      text: ['\'You can have it all back now ... we\'ve finished with it\', Geoff Pryor, 1984.', 'National Library of Australia nla.obj-156502334']
+    }
   },
 
   {
@@ -205,10 +234,11 @@ export const YEAR_DATA = [
     name: '',
     details: [
       'Gurindji people at Wave Hill station begin their seven-year-long strike, calling for better working conditions, fair wages, and reclamation of country. Their petition is ignored.',
-    'In 1974, the Labor Government  would finally return their lands in a symbolic ceremony. Prime Minister Gough Whitlam poured a handful of soil through Vincent Lingiari’s fingers, saying:',
-    '“Vincent Lingiari, I solemnly hand to you these deeds as proof, in Australian law, that these lands belong to the Gurindji people".',
-    'This moment has been celebrated through song, most recently by Electric Fields.'
-    ]
+      'In 1974, the Labor Government  would finally return their lands in a symbolic ceremony. Prime Minister Gough Whitlam poured a handful of soil through Vincent Lingiari’s fingers, saying:',
+      '“Vincent Lingiari, I solemnly hand to you these deeds as proof, in Australian law, that these lands belong to the Gurindji people".',
+      'This moment has been celebrated through song, most recently by Electric Fields.'
+    ],
+    media: { type: 'play-circle', src: 'ao7GOymvhsw', text: [] }
   },
   {
     eraId: 'activism',
@@ -222,7 +252,13 @@ export const YEAR_DATA = [
     gap: 3,
     yearText: '1985',
     name: '',
-    details: ['Uluru handed back to the Anangu people after decades of lobbying.']
+    details: ['Uluru handed back to the Anangu people after decades of lobbying.'],
+    media: {
+      type: 'image',
+      src: '/images/1985.jpg',
+      text: ['Left to right: Sir Ninian Stephen, Clyde Holding, traditional owners Peter Bulla, Peter Kanari, Nipper Winmarti and his wife, Barbara Tjirkadu, Barry Cohen, 26 October 1985.',
+        'National Museum of Australia']
+    }
   },
   {
     eraId: 'activism',
@@ -237,34 +273,43 @@ export const YEAR_DATA = [
     gap: 3,
     yearText: '1992',
     name: '',
-    details: ['High Court of Australia\'s Mabo decision formally recognises native title and renders terra nullius a legal fiction.']
+    details: ['High Court of Australia\'s Mabo decision formally recognises native title and renders terra nullius a legal fiction.'],
+    media: {
+      type: 'image',
+      src: '/images/1992.jpg',
+      text: ['Eddie Koiki Mabo at Las, Murray Island, 1989. Photo: John Whitterron. Yarra Bank Films.',
+        'National Museum of Australia']
+    }
   },
   {
     eraId: 'reconciliation',
     gap: 1,
     yearText: '1997',
     name: '',
-    details: ['\'Bringing Them Home\' report released by the National Inquiry into the Separation of Aboriginal and Torres Strait Island Children from Their Families. Most of its 54 recommendations are ignored.']
+    details: ['\'Bringing Them Home\' report released by the National Inquiry into the Separation of Aboriginal and Torres Strait Island Children from Their Families. Most of its 54 recommendations are ignored.'],
+    media: { type: 'play-circle', src: 'JWwCQ21hT7U', text: [] }
   },
   {
     eraId: 'reconciliation',
     gap: 3,
     yearText: '2008',
     name: '',
-    details: ['Prime Minister Kevin Rudd formally apologises on behalf of the Government for creating the Stolen Generations.']
+    details: ['Prime Minister Kevin Rudd formally apologises on behalf of the Government for creating the Stolen Generations.'],
+    media: { type: 'play-circle', src: 'RThkO3XBThs', text: [] }
   },
   {
     eraId: 'reconciliation',
     gap: 1,
     yearText: '2017',
     name: '',
-    details: ['Uluru Statement from the Heart born from a series of regional dialogues held across the country.']
+    details: ['Uluru Statement from the Heart born from a series of regional dialogues held across the country.'],
+    media: { type: 'play-circle', src: 'YJrHStMY1Gg', text: [] }
   },
   {
     eraId: 'reconciliation',
     gap: 1,
     yearText: '2023',
     name: '',
-    details: ['Australia votes no in the Voice to Parliament referendum, denying Aboriginal and Torres Strait Islander communities an enshrined route to help inform policy and legal decision that impact their lives. This voice has been called for close to 100 years.']
+    details: ['Australia votes no in the Voice to Parliament referendum, denying Aboriginal and Torres Strait Islander communities an enshrined route to help inform policy and legal decision that impact their lives. <a href="https://www.reconciliation.org.au/reconciliation/support-a-voice-to-parliament/100-years-of-calls-for-voice/" class="underline hover:text-brand-midblue" target="_blank" rel="noopener noreferrer">This voice has been called for close to 100 years.</a>']
   }
 ]

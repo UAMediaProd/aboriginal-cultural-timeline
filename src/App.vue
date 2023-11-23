@@ -22,7 +22,7 @@
               <div class="text-2xl font-bold my-2">{{ era.name }}</div>
               <div class="text-xl font-bold my-auto">{{ era.yearText }}</div>
             </div>
-            <p v-for='paragraph in era.summary' class="text-left italic text-base text-slate-200 leading-[22px] mb-3">{{ paragraph }}</p>
+            <p v-for='paragraph in era.summary' v-html="paragraph" class="text-left italic text-base text-slate-200 leading-[22px] mb-3" />
           </div>
         </div>
         <div v-else class="snap-start">
@@ -32,11 +32,21 @@
             <p v-for='paragraph in era.summary' class="text-right italic text-base leading-5 mb-3">{{ paragraph }}</p>
           </div>
         </div>
+
+        <!--    Inserted video for stolen generations only    -->
+        <div v-if="era.id === 'stolen'" class="w-4/5 mx-auto pb-2 bg-white">
+          <div class="relative pb-[56.25%] h-0">
+            <iframe title="YouTube video player" src="https://www.youtube.com/embed/iQMZZ8ng7oI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
+          </div>
+        </div>
         <div v-for="(year, index) in YEAR_DATA.filter(y => y.eraId === era.id)" class="pb-1">
           <div :id="`year-${era.id}-${index}`" class="relative flex w-1/2 py-1 snap-start" :class="index%2 ? 'flex-row-reverse justify-start ml-[50%] pl-2' : 'text-right justify-end ml-[50%] -translate-x-full pr-2'" :style="{marginTop: year.gap * 10 + 'px'}">
             <div class="w-full bg-brand-midblue bg-opacity-10 rounded-xl p-3" :class="index%2 ? 'text-left' : 'text-right'">
-              <div class="font-bold text-brand-midblue text-2xl">{{ year.yearText }}</div>
-              <p v-for="line in year.details" class="text-base leading-5 mt-2">{{ line }}</p>
+              <div class="flex text-2xl" :class="index%2 ? '' : 'flex-row-reverse'">
+                <div class="font-bold text-brand-midblue">{{ year.yearText }}</div>
+                <i v-if="year.media" class="fad text-xl text-brand-gold my-auto mx-2 cursor-pointer" :class="`fa-${year.media.type}`" @click="openMediaModal(year.media)" />
+              </div>
+              <p v-for="line in year.details" v-html="line" class="text-base leading-5 mt-2" />
             </div>
             <div class="h-0.5 w-[100px] bg-black my-auto mx-2"></div>
             <div class="absolute top-1/2 -translate-y-1/2 text-center text-xl" :class="index%2 ? '-left-[10px]' : '-right-[10px]'">
@@ -75,20 +85,41 @@
         <div class="text-sm -mt-1">Back to top</div>
       </div>
     </div>
+
+
+    <div v-if="showMediaModal" class="fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black/80 backdrop-blur-sm" aria-modal="true" tabindex="-1">
+      <div id="modal" class="flex max-h-[90vh] w-11/12 max-w-[90%] flex-col overflow-x-hidden overflow-y-scroll rounded p-4">
+        <header class="flex justify-end opacity-50 hover:opacity-100 mb-2">
+          <div class="flex justify-center w-6 h-6 rounded-full bg-gray-200">
+            <i class="far fa-times text-brand-darkblue cursor-pointer my-auto" @click="closeMediaModal" /></div>
+        </header>
+        <div class="flex-1 overflow-auto">
+          <img v-if="currentMedia && currentMedia.type === 'image'" :src="currentMedia.src" alt="" class="mx-auto">
+          <div v-if="currentMedia && currentMedia.type === 'play-circle'" class="relative pb-[56.25%] h-0 w-full">
+            <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${currentMedia.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
+          </div>
+          <div v-if="currentMedia && currentMedia.text" class="text-white text-center mt-2 px-2">
+            <p v-for="(line, index) in currentMedia.text" :class="currentMedia.text.length > 1 && index === currentMedia.text.length - 1 ? 'italic' : ''">{{ line }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 </template>
 <script setup>
 import { INTRO_TEXT, ERA_DATA, YEAR_DATA, TITLE } from "@/assets/data"
-import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue";
+import { computed, onBeforeUnmount, onMounted, ref, watch } from "vue"
 
 const currentSection = ref(0)
 const disableSync = ref(false)
 const showSliderMarker = ref(false)
+const showMediaModal = ref(false)
+const currentMedia = ref(null)
 
 const mappedSections = computed(() => {
   let ids = []
   ERA_DATA.forEach(era => {
-    ids.push({ id: `era-${era.id}`, label: `${era.name}`})
+    ids.push({ id: `era-${era.id}`, label: `${era.name}` })
     YEAR_DATA.filter(y => y.eraId === era.id).forEach((year, yIndex) => {
       ids.push({ id: `year-${era.id}-${yIndex}`, label: year.yearText })
     })
@@ -132,6 +163,16 @@ function syncSideNav () {
   }
 }
 
+function openMediaModal (media) {
+  currentMedia.value = { ...media }
+  showMediaModal.value = true
+}
+
+function closeMediaModal () {
+  showMediaModal.value = false
+  currentMedia.value.null
+}
+
 onMounted(() => {
   scrollToTop()
   window.addEventListener('scroll', syncSideNav)
@@ -151,6 +192,11 @@ watch(showSliderMarker, (value) => {
     showSliderMarker.value = false
   }, 1500)
 })
+
+watch(showMediaModal, value => {
+  const body = document.querySelector('body')
+  body.style.overflow = value ? 'hidden' : 'auto'
+})
 </script>
 
 <style>
@@ -164,6 +210,7 @@ watch(showSliderMarker, (value) => {
   background: #005a9c;
   cursor: pointer;
 }
+
 #VerticalSlider::-moz-range-thumb {
   width: 18px;
   height: 18px;

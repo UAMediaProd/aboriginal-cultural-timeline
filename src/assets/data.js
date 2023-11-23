@@ -177,7 +177,9 @@ export const YEAR_DATA = [
     name: '',
     details: ['Parliamentary inquiry into poor conditions at Corranderrk Reserve. Aboriginal residents call for land rights and self-determination.'],
     media: {
-      type: 'image', src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1881.jpg', text: ['William Barak and the Aboriginal community of Coranderrk.',
+      type: 'image',
+      src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1881.jpg',
+      text: ['William Barak and the Aboriginal community of Coranderrk.',
         'State Library of Victoria 1903SLV']
     }
   },
@@ -225,6 +227,16 @@ export const YEAR_DATA = [
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1956.jpg',
       text: ['\'You can have it all back now ... we\'ve finished with it\', Geoff Pryor, 1984.', 'National Library of Australia nla.obj-156502334']
     }
+  },
+
+  {
+    eraId: 'stolen',
+    standalone: true,
+    gap: 1,
+    yearText: '',
+    name: '',
+    details: [],
+    media: { type: 'play-circle', src: 'ao7GOymvhsw', text: [] }
   },
 
   {

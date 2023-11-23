@@ -34,13 +34,13 @@
         </div>
 
         <!--    Inserted video for stolen generations only    -->
-        <div v-if="era.id === 'stolen'" class="w-4/5 mx-auto pb-2 bg-white">
-          <div class="relative pb-[56.25%] h-0">
-            <iframe title="YouTube video player" src="https://www.youtube.com/embed/iQMZZ8ng7oI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
-          </div>
-        </div>
         <div v-for="(year, index) in YEAR_DATA.filter(y => y.eraId === era.id)" class="pb-1">
-          <div :id="`year-${era.id}-${index}`" class="relative flex w-1/2 py-1 snap-start" :class="index%2 ? 'flex-row-reverse justify-start ml-[50%] pl-2' : 'text-right justify-end ml-[50%] -translate-x-full pr-2'" :style="{marginTop: year.gap * 10 + 'px'}">
+          <div v-if="year.standalone" :id="`year-${era.id}-${index}`" class="w-4/5 mx-auto pb-2 bg-white snap-start">
+            <div class="relative pb-[56.25%] h-0">
+              <iframe title="YouTube video player" src="https://www.youtube.com/embed/iQMZZ8ng7oI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
+            </div>
+          </div>
+          <div v-else :id="`year-${era.id}-${index}`" class="relative flex w-1/2 py-1 snap-start" :class="index%2 ? 'flex-row-reverse justify-start ml-[50%] pl-2' : 'text-right justify-end ml-[50%] -translate-x-full pr-2'" :style="{marginTop: year.gap * 10 + 'px'}">
             <div class="w-full bg-brand-midblue bg-opacity-10 rounded-xl p-3" :class="index%2 ? 'text-left' : 'text-right'">
               <div class="flex text-2xl" :class="index%2 ? '' : 'flex-row-reverse'">
                 <div class="font-bold text-brand-midblue">{{ year.yearText }}</div>
@@ -68,7 +68,7 @@
         <input id="VerticalSlider" v-model="currentSection" type="range" min="0" :max="mappedSections.length - 1" step="1" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 w-[40vh] h-1 bg-gray-100 rounded-lg appearance-none cursor-pointer rotate-90" @change="scrollToSection">
         <div class="absolute top-0 right-1/3 h-full flex flex-col justify-between py-2">
           <div v-for="(item, index) in mappedSections" class="relative h-[2px] w-2">
-            <div v-if="index === currentSection && showSliderMarker" class="absolute top-1/2 left-1.5 -translate-y-1/2 w-[240px] flex">
+            <div v-if="index === currentSection && showSliderMarker && item.label" class="absolute top-1/2 left-1.5 -translate-y-1/2 w-[240px] flex">
               <i class="fas fa-caret-left text-sm text-brand-midblue my-auto" />
               <div class="bg-brand-midblue rounded px-2 py-1 text-left text-white font-normal text-sm my-auto">{{ item.label }}</div>
             </div>

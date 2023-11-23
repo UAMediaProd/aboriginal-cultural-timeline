@@ -62,7 +62,7 @@
     </div>
 
     <!--  side nav  -->
-    <div class="fixed flex flex-col justify-between top-[10%] left-0 w-24 px-2 py-4 rounded-r-xl text-center text-white font-bold text-base bg-black bg-opacity-70">
+    <div class="fixed flex flex-col justify-between top-[10%] left-0 w-24 px-2 py-4 rounded-xl text-center text-white font-bold text-base bg-black bg-opacity-70">
       <div class="mb-1">BCE 65,000</div>
       <div class="relative h-[40vh] my-1">
         <input id="VerticalSlider" v-model="currentSection" type="range" min="0" :max="mappedSections.length - 1" step="1" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 w-[40vh] h-1 bg-gray-100 rounded-lg appearance-none cursor-pointer rotate-90" @change="scrollToSection">

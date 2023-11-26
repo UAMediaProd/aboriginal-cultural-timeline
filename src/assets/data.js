@@ -23,7 +23,7 @@ export const ERA_DATA = [
     isSubEra: false,
     gapAfter: 1,
     summary: [
-      'There were over 250 distinct Aboriginal and Torres Strait Islander language groups when Lieutenant James Cook first arrived on the continent',
+      'There were over 250 distinct Aboriginal and Torres Strait Islander language groups when Lieutenant James Cook first arrived on the continent.',
       'Early colonisers could not understand the Aboriginal peoples’ sustainable, harmonious connection to the land. This justified the settlers’ wrongful concept of ‘terra nullius’, or ‘land belonging to nobody’ -- land that was ripe for colonisation.',
       'There were an estimated 300,000-950,000 Aboriginal and Torres Strait Islander people at the time of invasion. By 1900, this number had reduced by 90%. New diseases, food scarcity, forcible land acquisition, and direct violent conflicts all contributed to the decline.'
     ]
@@ -72,7 +72,7 @@ export const ERA_DATA = [
       'The Stolen Generations refer to the forcible removal of Aboriginal and Torres Strait Islander children from their families. Children were taken based on the assimilation polices which claimed that the lives of Aboriginal children would be improved if they became part of white society. This process was also called ‘natural elimination’.',
       'Children taken were denied access to their families, communities, cultures and taught to reject their heritage in favour of the white culture. Names were changed and language was forbidden.',
       'An estimation of 10-33% of Aboriginal and Torres Strait children were separated from their familied in just 60 years.  Intergenerational trauma has continued to severely impact those taken and their descendents.',
-      'In 1980, government link-up services were established to support members of the Stolen Generations in their search to reconnect with their families. Testimonies of the Stolen Generations can be heard and read here: <a href="https://www.stolengenerationstestimonies.com/" class="underline hover:text-brand-midblue" target="_blank" rel="noopener noreferrer">https://www.stolengenerationstestimonies.com/</a>'
+      'In 1980, government link-up services were established to support members of the Stolen Generations in their search to reconnect with their families. Testimonies of the Stolen Generations can be heard and read here: <a href="https://www.stolengenerationstestimonies.com/" class="underline hover:text-brand-midblue" target="_blank" rel="noopener noreferrer">https://www.stolengenerationstestimonies.com/</a>.'
     ]
   },
   {
@@ -106,12 +106,12 @@ export const YEAR_DATA = [
     gap: 2,
     yearText: 'BCE 65,000',
     name: '',
-    details: ['Earliest known evidence of Aboriginal civilisation'],
+    details: ['Earliest known evidence of Aboriginal civilisation.'],
     media: {
       type: 'image',
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/bce65000.jpg',
       text: ['Piece of ochre used in what is now Kakadu National Park, 53,000–59,000 years ago.',
-        'Museum and Gallery of the Northern Territory']
+        'Museum and Gallery of the Northern Territory.']
     }
   },
 
@@ -120,7 +120,7 @@ export const YEAR_DATA = [
     gap: 5,
     yearText: '1770',
     name: '',
-    details: ['James Cook arrives at Botany Bay and claims possession of Australia for Britain'],
+    details: ['James Cook arrives at Botany Bay and claims possession of Australia for Britain.'],
     media: { type: 'play-circle', src: 'q_cOJgpk4ko?start=85&end=120', text: [] }
 
   },
@@ -129,7 +129,7 @@ export const YEAR_DATA = [
     gap: -5,
     yearText: '1788',
     name: '',
-    details: ['The First Fleet arrives in Sydney Harbour on January 24, 1788']
+    details: ['The First Fleet arrives in Sydney Harbour on January 24, 1788.']
   },
   {
     eraId: 'invasion',

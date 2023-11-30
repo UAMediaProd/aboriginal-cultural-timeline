@@ -1,4 +1,4 @@
-export const TITLE = 'A Timeline of Colonisation of the First Nations of Australia'
+export const TITLE = 'A timeline of colonisation of the First Nations of Australia'
 
 export const INTRO_TEXT = [
   'The process of British colonisation, dispossession, and genocide against the Aboriginal and Torres Strait Islanders was long and complex. This timeline is an attempt to introduce readers to a general overview of colonisation and is not intended to be comprehensive or definitive.'
@@ -7,7 +7,7 @@ export const INTRO_TEXT = [
 export const ERA_DATA = [
   {
     id: 'bce',
-    name: 'Aboriginal Land',
+    name: 'Aboriginal land',
     yearText: 'BCE 65,000 - 1770',
     isSubEra: false,
     gapAfter: 3,
@@ -18,10 +18,10 @@ export const ERA_DATA = [
   },
   {
     id: 'invasion',
-    name: 'Invasion and Colonisation',
+    name: 'Invasion and colonisation',
     yearText: '1770-1890',
     isSubEra: false,
-    gapAfter: 1,
+    gapAfter: 0,
     summary: [
       'There were over 250 distinct Aboriginal and Torres Strait Islander language groups when Lieutenant James Cook first arrived on the continent.',
       'Early colonisers could not understand the Aboriginal peoples’ sustainable, harmonious connection to the land. This justified the settlers’ wrongful concept of ‘terra nullius’, or ‘land belonging to nobody’ -- land that was ripe for colonisation.',
@@ -36,12 +36,13 @@ export const ERA_DATA = [
     gapAfter: 1,
     summary: [
       '\'Frontier Wars\' refer to all the massacres, wars, and instances of resistance beginning from the arrival of colonists and ending roughly around 1934.',
-      'Below is a map of all the recorded colonial frontier massacres in Australia in this period.'
+      'Below is a map of all the recorded colonial frontier massacres in Australia in this period.',
+      '[<a href="https://c21ch.newcastle.edu.au/colonialmassacres/map.php" class="text-brand-midblue underline hover:text-brand-darkblue" target="_blank" rel="noopener noreferrer">Map</a>]'
     ]
   },
   {
     id: 'segregation',
-    name: '"Protection" and Segregation',
+    name: '"Protection" and segregation',
     yearText: '1860-1900',
     isSubEra: false,
     gapAfter: 1,
@@ -77,7 +78,7 @@ export const ERA_DATA = [
   },
   {
     id: 'activism',
-    name: 'Activism and Integration',
+    name: 'Activism and integration',
     yearText: '1960s-1990s',
     isSubEra: false,
     gapAfter: 1,
@@ -88,7 +89,7 @@ export const ERA_DATA = [
   },
   {
     id: 'reconciliation',
-    name: 'Reconciliation and Self-Determination',
+    name: 'Reconciliation and self-determination',
     yearText: '1991-present',
     isSubEra: false,
     gapAfter: 1,
@@ -103,7 +104,7 @@ export const ERA_DATA = [
 export const YEAR_DATA = [
   {
     eraId: 'bce',
-    gap: 2,
+    gap: 4,
     yearText: 'BCE 65,000',
     name: '',
     details: ['Earliest known evidence of Aboriginal civilisation.'],
@@ -121,7 +122,12 @@ export const YEAR_DATA = [
     yearText: '1770',
     name: '',
     details: ['James Cook arrives at Botany Bay and claims possession of Australia for Britain.'],
-    media: { type: 'play-circle', src: 'q_cOJgpk4ko?start=85&end=120', text: [] }
+    media: {
+      type: 'youtube',
+      src: 'q_cOJgpk4ko?start=85&end=120',
+      thumbnail: 'https://i.ytimg.com/vi/q_cOJgpk4ko/maxresdefault.jpg',
+      text: []
+    }
 
   },
   {
@@ -146,21 +152,6 @@ export const YEAR_DATA = [
       text: ['Letters Patent under the Great Seal of the United Kingdom erecting and establishing the Province of South Australia and fixing the boundaries thereof, 19 February 1836',
         'State Records of South Australia SRSA: GRG 2/64']
     }
-  },
-
-  {
-    eraId: 'wars',
-    gap: 3,
-    yearText: '1824-1830',
-    name: '',
-    details: ['Tasmanian \'Black War\'. Aboriginal population forcibly located to Flinders Island, where most die due to poor conditions.']
-  },
-  {
-    eraId: 'wars',
-    gap: -5,
-    yearText: '1838',
-    name: '',
-    details: ['Myall Creek massacre. 28 Aboriginal people, mostly women and children, are murdered by white stockmen.']
   },
 
   {
@@ -236,12 +227,17 @@ export const YEAR_DATA = [
     yearText: '',
     name: '',
     details: [],
-    media: { type: 'play-circle', src: 'ao7GOymvhsw', text: [] }
+    media: {
+      type: 'youtube',
+      src: 'iQMZZ8ng7oI',
+      thumbnail: 'https://i.ytimg.com/vi/iQMZZ8ng7oI/maxresdefault.jpg',
+      text: []
+    }
   },
 
   {
     eraId: 'activism',
-    gap: 3,
+    gap: 4,
     yearText: '1966',
     name: '',
     details: [
@@ -250,18 +246,23 @@ export const YEAR_DATA = [
       '“Vincent Lingiari, I solemnly hand to you these deeds as proof, in Australian law, that these lands belong to the Gurindji people".',
       'This moment has been celebrated through song, most recently by Electric Fields.'
     ],
-    media: { type: 'play-circle', src: 'ao7GOymvhsw', text: [] }
+    media: {
+      type: 'youtube',
+      src: 'ao7GOymvhsw',
+      thumbnail: 'https://i.ytimg.com/vi/ao7GOymvhsw/maxresdefault.jpg',
+      text: []
+    }
   },
   {
     eraId: 'activism',
-    gap: -16,
+    gap: -18,
     yearText: '1967',
     name: '',
     details: ['Over 90% of Australians vote YES in referendum to amend the Constitution. Aboriginal and Torres Strait Islander people included in Census for the first time.']
   },
   {
     eraId: 'activism',
-    gap: 3,
+    gap: 10,
     yearText: '1985',
     name: '',
     details: ['Uluru handed back to the Anangu people after decades of lobbying.'],
@@ -282,7 +283,7 @@ export const YEAR_DATA = [
 
   {
     eraId: 'reconciliation',
-    gap: 3,
+    gap: 4,
     yearText: '1992',
     name: '',
     details: ['High Court of Australia\'s Mabo decision formally recognises native title and renders terra nullius a legal fiction.'],
@@ -299,7 +300,12 @@ export const YEAR_DATA = [
     yearText: '1997',
     name: '',
     details: ['\'Bringing Them Home\' report released by the National Inquiry into the Separation of Aboriginal and Torres Strait Island Children from Their Families. Most of its 54 recommendations are ignored.'],
-    media: { type: 'play-circle', src: 'JWwCQ21hT7U', text: [] }
+    media: {
+      type: 'youtube',
+      src: 'JWwCQ21hT7U',
+      thumbnail: 'https://i.ytimg.com/vi/JWwCQ21hT7U/maxresdefault.jpg',
+      text: []
+    }
   },
   {
     eraId: 'reconciliation',
@@ -307,7 +313,12 @@ export const YEAR_DATA = [
     yearText: '2008',
     name: '',
     details: ['Prime Minister Kevin Rudd formally apologises on behalf of the Government for creating the Stolen Generations.'],
-    media: { type: 'play-circle', src: 'RThkO3XBThs', text: [] }
+    media: {
+      type: 'youtube',
+      src: 'RThkO3XBThs',
+      thumbnail: 'https://i.ytimg.com/vi/RThkO3XBThs/hqdefault.jpg',
+      text: []
+    }
   },
   {
     eraId: 'reconciliation',
@@ -315,7 +326,12 @@ export const YEAR_DATA = [
     yearText: '2017',
     name: '',
     details: ['Uluru Statement from the Heart born from a series of regional dialogues held across the country.'],
-    media: { type: 'play-circle', src: 'YJrHStMY1Gg', text: [] }
+    media: {
+      type: 'youtube',
+      src: 'YJrHStMY1Gg',
+      thumbnail: 'https://i.ytimg.com/vi/YJrHStMY1Gg/maxresdefault.jpg',
+      text: []
+    }
   },
   {
     eraId: 'reconciliation',

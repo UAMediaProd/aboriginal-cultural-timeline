@@ -1,22 +1,25 @@
 <template>
-  <main class="px-28">
-    <div class="snap-end">
-      <div class="flex justify-center text-center pt-3">
-        <h2 class="max-w-[500px] my-6">{{ TITLE }}</h2>
-      </div>
-      <div v-for="line in INTRO_TEXT" class="max-w-[750px] text-center italic text-slate-500 text-base leading-5 mb-3 mx-auto">{{ line }}</div>
-    </div>
-
-    <!--  Timeline section  -->
-    <div class="relative">
-      <div class="bg-white text-center mt-8 pb-4 mb-24">
-        <div class="text-lg font-bold rounded border-2 border-brand-midblue text-brand-midblue hover:text-white hover:bg-brand-midblue cursor-pointer mx-auto w-fit px-4 py-2" @click="scrollToSection">Scroll / Click to Begin</div>
-      </div>
-      <div :id="'era-'+ era.id" v-for="era in ERA_DATA" class="text-center z-10" :style="{paddingBottom: era.gapAfter * 50 + 'px'}">
-        <div v-if="!era.isSubEra" class="text-center bg-white">
-          <i class="fas fa-triangle rotate-180 text-gray-200 text-lg align-top mb-auto -mt-1.5" />
+  <main class="overscroll-none" style="background-image: url('./images/bg_arch.png'); background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
+    <div class="px-28 bg-white bg-opacity-80 pb-4 backdrop-blur-sm">
+      <div class="snap-end">
+        <div class="flex justify-center text-center pt-3">
+          <h2 class="max-w-[500px] my-6">{{ TITLE }}</h2>
         </div>
-        <div v-if="!era.isSubEra" class="bg-white pb-6 pt-2 snap-start">
+        <div v-for="line in INTRO_TEXT" class="max-w-[750px] text-center text-base italic leading-5 mb-3 mx-auto">{{ line }}</div>
+      </div>
+
+      <!--  Timeline section  -->
+      <div class="text-center mt-8">
+        <div class="text-lg font-bold rounded border-2 border-brand-midblue text-brand-midblue hover:text-white hover:bg-brand-midblue cursor-pointer mx-auto w-fit px-4 py-2" @click="scrollToSection">Scroll / Click to Begin</div>
+        <div class="relative mt-4">
+          <div class="absolute left-1/2 top-0 -translate-x-1/2 w-1 h-full bg-brand-midblue" />
+          <div class="text-center pt-12">
+            <i class="fas fa-triangle rotate-180 text-brand-midblue text-lg align-top mb-auto translate-y-3" />
+          </div>
+        </div>
+      </div>
+      <div :id="'era-'+ era.id" v-for="era in ERA_DATA" class="text-center z-10 relative">
+        <div v-if="!era.isSubEra" class="pb-6 snap-start mt-6">
           <div class="w-full bg-brand-darkblue text-white py-3 px-6">
             <div class="flex justify-between">
               <div class="text-2xl font-bold my-2">{{ era.name }}</div>
@@ -25,44 +28,60 @@
             <p v-for='paragraph in era.summary' v-html="paragraph" class="text-left italic text-base text-slate-200 leading-[22px] mb-3" />
           </div>
         </div>
-        <div v-else class="snap-start">
-          <hr class="border-2 border-dashed border-gray-200" />
+        <div v-else class="snap-start pt-12">
+          <hr class="border-2 border-dashed border-brand-midblue" />
           <div class="w-1/2 py-3 px-6">
             <div class="text-right text-2xl font-bold my-2">{{ era.name }}</div>
-            <p v-for='paragraph in era.summary' class="text-right italic text-base leading-5 mb-3">{{ paragraph }}</p>
+            <p v-for='paragraph in era.summary' v-html="paragraph" class="text-right italic text-base leading-5 mb-3" />
           </div>
         </div>
 
         <!--    Inserted video for stolen generations only    -->
         <div v-for="(year, index) in YEAR_DATA.filter(y => y.eraId === era.id)" class="pb-1">
-          <div v-if="year.standalone" :id="`year-${era.id}-${index}`" class="w-4/5 mx-auto pb-2 bg-white snap-start">
+          <div v-if="year.standalone" :id="`year-${era.id}-${index}`" class="w-4/5 mx-auto mb-2 snap-start">
             <div class="relative pb-[56.25%] h-0">
               <iframe title="YouTube video player" src="https://www.youtube.com/embed/iQMZZ8ng7oI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
             </div>
           </div>
           <div v-else :id="`year-${era.id}-${index}`" class="relative flex w-1/2 py-1 snap-start" :class="index%2 ? 'flex-row-reverse justify-start ml-[50%] pl-2' : 'text-right justify-end ml-[50%] -translate-x-full pr-2'" :style="{marginTop: year.gap * 10 + 'px'}">
-            <div class="w-full bg-brand-midblue bg-opacity-10 rounded-xl p-3" :class="index%2 ? 'text-left' : 'text-right'">
-              <div class="flex text-2xl" :class="index%2 ? '' : 'flex-row-reverse'">
-                <div class="font-bold text-brand-midblue">{{ year.yearText }}</div>
-                <i v-if="year.media" class="fad text-xl text-brand-gold my-auto mx-2 cursor-pointer" :class="`fa-${year.media.type}`" @click="openMediaModal(year.media)" />
+            <div class="w-full bg-white rounded-xl">
+              <div class="w-full bg-brand-midblue bg-opacity-30 rounded-xl p-3" :class="index%2 ? 'text-left' : 'text-right'">
+                <div class="flex text-2xl relative" :class="index%2 ? '' : 'flex-row-reverse'">
+                  <div class="font-bold text-brand-midblue">{{ year.yearText }}</div>
+                  <div v-if="year.media" class="absolute -top-16 w-24 h-24 z-30 cursor-pointer" :class="index%2 ? 'right-0' : 'left-0'" @click="openMediaModal(year.media)">
+                    <div class="w-full h-full relative group">
+                      <img :src="year.media.type === 'image' ? year.media.src : year.media.thumbnail" alt="" class="w-full h-full object-cover rounded-lg">
+                      <div class="absolute top-0 left-0 w-full h-full opacity-0 group-hover:opacity-100">
+                        <div class="flex justify-center bg-black bg-opacity-50 w-full h-full rounded-lg">
+                          <i class="my-auto text-white opacity-80 text-3xl" :class="year.media.type === 'image' ? 'far fa-search-plus' : 'fas fa-play-circle'" />
+                        </div>
+                      </div>
+                      <div class="absolute opacity-100 group-hover:opacity-0 bottom-0 w-6 h-6 bg-white" :class="index%2 ? 'left-0 rounded-tr-2xl' : 'right-0 rounded-tl-2xl'">
+                        <div class="flex w-full h-full bg-brand-midblue bg-opacity-30" :class="index%2 ? 'rounded-tr-2xl justify-start' : 'rounded-tl-2xl justify-end'">
+                          <i class="text-sm mt-auto" :class="`fa-${year.media.type} ${year.media.type === 'image' ? 'fas text-brand-midblue' : 'fab text-brand-red'}`" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <p v-for="line in year.details" v-html="line" class="text-base leading-5 mt-2" />
               </div>
-              <p v-for="line in year.details" v-html="line" class="text-base leading-5 mt-2" />
             </div>
             <div class="h-0.5 w-[100px] bg-black my-auto mx-2"></div>
             <div class="absolute top-1/2 -translate-y-1/2 text-center text-xl" :class="index%2 ? '-left-[10px]' : '-right-[10px]'">
               <i class="fad fa-circle" /></div>
           </div>
         </div>
-      </div>
 
-      <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 w-1 h-full bg-gray-200" />
-      <div class="text-center bg-white">
-        <i class="fas fa-triangle rotate-180 text-gray-200 text-lg align-top mb-auto -mt-1.5" />
+        <div class="absolute left-1/2 top-0 -z-10 -translate-x-1/2 w-1 h-full bg-brand-midblue" />
+        <div v-if="era.gapAfter" class="text-center" :style="{paddingTop: era.gapAfter * 50 + 'px'}">
+          <i class="fas fa-triangle rotate-180 text-brand-midblue text-lg align-top mb-auto translate-y-3" />
+        </div>
       </div>
     </div>
 
     <!--  side nav  -->
-    <div class="fixed flex flex-col justify-between top-[10%] left-0 w-24 px-2 py-4 rounded-xl text-center text-white font-bold text-base bg-black bg-opacity-70">
+    <div class="fixed flex flex-col justify-between top-[10%] left-0 w-24 px-2 py-4 rounded-xl text-center text-white font-bold text-base bg-black bg-opacity-60">
       <div class="mb-1">BCE 65,000</div>
       <div class="relative h-[40vh] my-1">
         <input id="VerticalSlider" v-model="currentSection" type="range" min="0" :max="mappedSections.length - 1" step="1" class="absolute top-1/2 -translate-x-1/2 -translate-y-1/2 left-1/2 w-[40vh] h-1 bg-gray-100 rounded-lg appearance-none cursor-pointer rotate-90" @change="scrollToSection">
@@ -96,7 +115,7 @@
         </header>
         <div class="flex justify-center">
           <img v-if="currentMedia && currentMedia.type === 'image'" :src="currentMedia.src" alt="" class="w-10/12 max-w-max max-h-[70vh]">
-          <div v-if="currentMedia && currentMedia.type === 'play-circle'" class="relative pb-[56.25%] h-0 w-[100%]">
+          <div v-if="currentMedia && currentMedia.type === 'youtube'" class="relative pb-[56.25%] h-0 w-[100%]">
             <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${currentMedia.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[95%] h-[95%] top-0 left-1/2 -translate-x-1/2" />
           </div>
         </div>

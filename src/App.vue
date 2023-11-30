@@ -1,5 +1,5 @@
 <template>
-  <main class="overscroll-none" style="background-image: url('./images/bg_arch.png'); background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
+  <main class="overscroll-none" style="background-image: url(https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/bg_arch.png); background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
     <div class="px-28 bg-white bg-opacity-80 pb-4 backdrop-blur-sm">
       <div class="snap-end">
         <div class="flex justify-center text-center pt-3">
@@ -35,7 +35,7 @@
             <p v-for='paragraph in era.summary' v-html="paragraph" class="text-right italic text-base leading-5 mb-3" />
             <div class="w-36 h-32 ml-auto mt-5 bg-black rounded-lg group">
               <a href="https://c21ch.newcastle.edu.au/colonialmassacres/map.php" target="_blank" rel="noopener noreferrer" class="relative w-full h-full">
-                <img src="../images/war_map.png" alt="Map of Frontier Wars" class="w-full h-full object-cover rounded-lg group-hover:opacity-70">
+                <img src="https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/war_map.png" alt="Map of Frontier Wars" class="w-full h-full object-cover rounded-lg group-hover:opacity-70">
                 <i class="absolute fas fa-external-link top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 text-white text-2xl opacity-0 group-hover:opacity-80" />
               </a>
             </div>

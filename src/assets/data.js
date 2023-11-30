@@ -33,11 +33,10 @@ export const ERA_DATA = [
     name: 'Frontier Wars',
     yearText: '',
     isSubEra: true,
-    gapAfter: 1,
+    gapAfter: 0.5,
     summary: [
       '\'Frontier Wars\' refer to all the massacres, wars, and instances of resistance beginning from the arrival of colonists and ending roughly around 1934.',
-      'Below is a map of all the recorded colonial frontier massacres in Australia in this period.',
-      '[<a href="https://c21ch.newcastle.edu.au/colonialmassacres/map.php" class="text-brand-midblue underline hover:text-brand-darkblue" target="_blank" rel="noopener noreferrer">Map</a>]'
+      'Below is a map of all the recorded colonial frontier massacres in Australia in this period.'
     ]
   },
   {

@@ -33,6 +33,12 @@
           <div class="w-1/2 py-3 px-6">
             <div class="text-right text-2xl font-bold my-2">{{ era.name }}</div>
             <p v-for='paragraph in era.summary' v-html="paragraph" class="text-right italic text-base leading-5 mb-3" />
+            <div class="w-36 h-32 ml-auto mt-5 bg-black rounded-lg group">
+              <a href="https://c21ch.newcastle.edu.au/colonialmassacres/map.php" target="_blank" rel="noopener noreferrer" class="relative w-full h-full">
+                <img src="../images/war_map.png" alt="Map of Frontier Wars" class="w-full h-full object-cover rounded-lg group-hover:opacity-70">
+                <i class="absolute fas fa-external-link top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 text-white text-2xl opacity-0 group-hover:opacity-80" />
+              </a>
+            </div>
           </div>
         </div>
 
@@ -78,6 +84,8 @@
           <i class="fas fa-triangle rotate-180 text-brand-midblue text-lg align-top mb-auto translate-y-3" />
         </div>
       </div>
+
+      <div class="text-sm text-gray-600 text-right">&copy; The University of Adelaide</div>
     </div>
 
     <!--  side nav  -->

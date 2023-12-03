@@ -1,6 +1,6 @@
 <template>
   <main class="overscroll-none" style="background-image: url(https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/bg_arch.png); background-attachment: fixed; background-repeat: no-repeat; background-size: cover;">
-    <div class="px-28 bg-white bg-opacity-80 pb-4 backdrop-blur-sm">
+    <div class="px-28 bg-white bg-opacity-70 pb-4 backdrop-blur-[2px]">
       <div class="snap-end">
         <div class="flex justify-center text-center pt-3">
           <h2 class="max-w-[500px] my-6">{{ TITLE }}</h2>

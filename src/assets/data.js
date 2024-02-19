@@ -1,7 +1,7 @@
 export const TITLE = 'A timeline of colonisation of the First Nations of Australia'
 
 export const INTRO_TEXT = [
-  'The process of British colonisation, dispossession, and genocide against the Aboriginal and Torres Strait Islanders was long and complex. This timeline is an attempt to introduce readers to a general overview of colonisation and is not intended to be comprehensive or definitive.'
+  'The process of British colonisation, dispossession, and genocide against Aboriginal and Torres Strait Islander peoples was long and complex. This timeline is an attempt to introduce readers to a general overview of colonisation and is not intended to be comprehensive or definitive.'
 ]
 
 export const ERA_DATA = [

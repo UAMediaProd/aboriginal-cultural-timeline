@@ -45,8 +45,8 @@
         <!--    Inserted video for stolen generations only    -->
         <div v-for="(year, index) in YEAR_DATA.filter(y => y.eraId === era.id)" class="pb-1">
           <div v-if="year.standalone" :id="`year-${era.id}-${index}`" class="w-4/5 mx-auto mb-2 snap-start">
-            <div class="relative pb-[56.25%] h-0">
-              <iframe title="YouTube video player" src="https://www.youtube.com/embed/iQMZZ8ng7oI" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
+            <div v-if="year.media.type === 'youtube'" class="relative pb-[56.25%] h-0">
+              <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${year.media.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
             </div>
           </div>
           <div v-else :id="`year-${era.id}-${index}`" class="relative flex w-1/2 py-1 snap-start" :class="index%2 ? 'flex-row-reverse justify-start ml-[50%] pl-2' : 'text-right justify-end ml-[50%] -translate-x-full pr-2'" :style="{marginTop: year.gap * 10 + 'px'}">
@@ -127,8 +127,8 @@
             <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${currentMedia.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[95%] h-[95%] top-0 left-1/2 -translate-x-1/2" />
           </div>
         </div>
-        <div v-if="currentMedia && currentMedia.text" class="text-white text-center text-base leading-5 mt-2 px-2">
-          <p v-for="(line, index) in currentMedia.text" :class="currentMedia.text.length > 1 && index === currentMedia.text.length - 1 ? 'italic' : ''">{{ line }}</p>
+        <div v-if="currentMedia && currentMedia.text" class="text-white text-center text-lg mt-2 px-2 w-10/12 mx-auto">
+          <p v-for="(line, index) in currentMedia.text" :class="index === 0 ? 'font-bold': ( index === 1 ? 'italic' : 'text-sm text-gray-400 leading-5 mt-3') ">{{ line }}</p>
         </div>
       </div>
     </div>

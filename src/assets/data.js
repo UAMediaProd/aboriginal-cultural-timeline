@@ -110,8 +110,11 @@ export const YEAR_DATA = [
     media: {
       type: 'image',
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/bce65000.jpg',
-      text: ['Piece of ochre used in what is now Kakadu National Park, 53,000–59,000 years ago.',
-        'Museum and Gallery of the Northern Territory.']
+      text: [
+        'Piece of ochre used in what is now Kakadu National Park, 53,000–59,000 years ago.',
+        'Museum and Gallery of the Northern Territory.',
+        'This material has been copied and communicated under the Statutory Licence pursuant to s113P of the Copyright Act 1968 for the educational purposes of the University of Adelaide. Any further copying or communication of this material by you may be the subject of copyright protection.'
+      ]
     }
   },
 
@@ -148,8 +151,10 @@ export const YEAR_DATA = [
     media: {
       type: 'image',
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1834.jpg',
-      text: ['Letters Patent under the Great Seal of the United Kingdom erecting and establishing the Province of South Australia and fixing the boundaries thereof, 19 February 1836',
-        'State Records of South Australia SRSA: GRG 2/64']
+      text: [
+        'Letters Patent under the Great Seal of the United Kingdom erecting and establishing the Province of South Australia and fixing the boundaries thereof, 19 February 1836',
+        'State Records of South Australia SRSA: GRG 2/64'
+      ]
     }
   },
 
@@ -169,8 +174,10 @@ export const YEAR_DATA = [
     media: {
       type: 'image',
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1881.jpg',
-      text: ['William Barak and the Aboriginal community of Coranderrk.',
-        'State Library of Victoria 1903SLV']
+      text: [
+        'William Barak and the Aboriginal community of Coranderrk.',
+        'State Library of Victoria 1903SLV'
+      ]
     }
   },
   {
@@ -199,8 +206,10 @@ export const YEAR_DATA = [
     media: {
       type: 'image',
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1938.jpg',
-      text: ['Left to right: William (Bill) Ferguson, Jack Kinchela, Isaac Ingram, Doris Williams, Esther Ingram, Arthur Williams Jr, Phillip Ingram, unknown, Louisa Agnes Ingram holding daughter Olive, Jack Patten.',
-        'Mitchell Library, State Library of New South Wales Q 059/9']
+      text: [
+        'Left to right: William (Bill) Ferguson, Jack Kinchela, Isaac Ingram, Doris Williams, Esther Ingram, Arthur Williams Jr, Phillip Ingram, unknown, Louisa Agnes Ingram holding daughter Olive, Jack Patten.',
+        'Mitchell Library, State Library of New South Wales Q 059/9'
+      ]
     }
   },
   {
@@ -215,7 +224,11 @@ export const YEAR_DATA = [
     media: {
       type: 'image',
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1956.jpg',
-      text: ['\'You can have it all back now ... we\'ve finished with it\', Geoff Pryor, 1984.', 'National Library of Australia nla.obj-156502334']
+      text: [
+        '\'You can have it all back now ... we\'ve finished with it\', Geoff Pryor, 1984.',
+        'National Library of Australia nla.obj-156502334',
+        'This material has been copied and communicated under the Statutory Licence pursuant to s113P of the Copyright Act 1968 for the educational purposes of the University of Adelaide. Any further copying or communication of this material by you may be the subject of copyright protection.'
+      ]
     }
   },
 
@@ -228,8 +241,8 @@ export const YEAR_DATA = [
     details: [],
     media: {
       type: 'youtube',
-      src: 'iQMZZ8ng7oI',
-      thumbnail: 'https://i.ytimg.com/vi/iQMZZ8ng7oI/maxresdefault.jpg',
+      src: 'vlqx8EYvRbQ',
+      thumbnail: 'https://i.ytimg.com/vi/vlqx8EYvRbQ/maxresdefault.jpg',
       text: []
     }
   },
@@ -268,8 +281,11 @@ export const YEAR_DATA = [
     media: {
       type: 'image',
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1985.jpg',
-      text: ['Left to right: Sir Ninian Stephen, Clyde Holding, traditional owners Peter Bulla, Peter Kanari, Nipper Winmarti and his wife, Barbara Tjirkadu, Barry Cohen, 26 October 1985.',
-        'National Museum of Australia']
+      text: [
+        'Left to right: Sir Ninian Stephen, Clyde Holding, traditional owners Peter Bulla, Peter Kanari, Nipper Winmarti and his wife, Barbara Tjirkadu, Barry Cohen, 26 October 1985.',
+        'National Museum of Australia',
+        'This material has been copied and communicated under the Statutory Licence pursuant to s113P of the Copyright Act 1968 for the educational purposes of the University of Adelaide. Any further copying or communication of this material by you may be the subject of copyright protection.'
+      ]
     }
   },
   {
@@ -289,8 +305,11 @@ export const YEAR_DATA = [
     media: {
       type: 'image',
       src: 'https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/1992.jpg',
-      text: ['Eddie Koiki Mabo at Las, Murray Island, 1989. Photo: John Whitterron. Yarra Bank Films.',
-        'National Museum of Australia']
+      text: [
+        'Eddie Koiki Mabo at Las, Murray Island, 1989. Photo: John Whitterron. Yarra Bank Films.',
+        'National Museum of Australia',
+        'This material has been copied and communicated under the Statutory Licence pursuant to s113P of the Copyright Act 1968 for the educational purposes of the University of Adelaide. Any further copying or communication of this material by you may be the subject of copyright protection.'
+      ]
     }
   },
   {

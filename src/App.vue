@@ -31,29 +31,25 @@
         <div v-else class="snap-start pt-12">
           <hr class="border-2 border-dashed border-brand-midblue" />
           <div class="w-1/2 py-3 px-6">
-            <div class="text-right text-2xl font-bold my-2">{{ era.name }}</div>
-            <p v-for='paragraph in era.summary' v-html="paragraph" class="text-right italic text-base leading-5 mb-3" />
+            <div class="text-right text-2xl font-bold mt-2">{{ era.yearText }}</div>
+            <div class="text-right text-2xl font-bold mb-2">{{ era.name }}</div>
+            <p v-for='paragraph in era.summary' v-html="paragraph" class="text-right italic text-base font-medium leading-5 mb-3" />
             <div class="w-36 h-32 ml-auto mt-5 bg-black rounded-lg group">
               <a href="https://c21ch.newcastle.edu.au/colonialmassacres/map.php" target="_blank" rel="noopener noreferrer" class="relative w-full h-full">
                 <img src="https://mediaproduction.adelaide.edu.au/aboriginal-cultural-timeline/images/war_map.png" alt="Map of Frontier Wars" class="w-full h-full object-cover rounded-lg group-hover:opacity-70">
                 <i class="absolute fas fa-external-link top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 text-white text-2xl opacity-0 group-hover:opacity-80" />
               </a>
             </div>
+            <div v-if="era.ref" v-html="era.ref" class="text-right text-sm italic leading-tight mt-2" />
           </div>
         </div>
 
-        <!--    Inserted video for stolen generations only    -->
         <div v-for="(year, index) in YEAR_DATA.filter(y => y.eraId === era.id)" class="pb-1">
-          <div v-if="year.standalone" :id="`year-${era.id}-${index}`" class="w-4/5 mx-auto mb-2 snap-start">
-            <div v-if="year.media.type === 'youtube'" class="relative pb-[56.25%] h-0">
-              <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${year.media.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[100%] h-[100%] top-0 left-0"></iframe>
-            </div>
-          </div>
-          <div v-else :id="`year-${era.id}-${index}`" class="relative flex w-1/2 py-1 snap-start" :class="index%2 ? 'flex-row-reverse justify-start ml-[50%] pl-2' : 'text-right justify-end ml-[50%] -translate-x-full pr-2'" :style="{marginTop: year.gap * 10 + 'px'}">
+          <div :id="`year-${era.id}-${index}`" class="relative flex w-1/2 py-1 snap-start" :class="index%2 ? 'flex-row-reverse justify-start ml-[50%] pl-2' : 'text-right justify-end ml-[50%] -translate-x-full pr-2'" :style="{marginTop: year.gap * 10 + 'px'}">
             <div class="w-full bg-white rounded-xl">
               <div class="w-full bg-brand-midblue bg-opacity-30 rounded-xl p-3" :class="index%2 ? 'text-left' : 'text-right'">
                 <div class="flex text-2xl relative" :class="index%2 ? '' : 'flex-row-reverse'">
-                  <div class="font-bold text-brand-midblue">{{ year.yearText }}</div>
+                  <div class="font-bold text-brand-midblue leading-6 w-1/2">{{ year.yearText }}</div>
                   <div v-if="year.media" class="absolute -top-16 w-24 h-24 z-30 cursor-pointer" :class="index%2 ? 'right-0' : 'left-0'" @click="openMediaModal(year.media)">
                     <div class="w-full h-full relative group">
                       <img :src="year.media.type === 'image' ? year.media.src : year.media.thumbnail" alt="" class="w-full h-full object-cover rounded-lg">
@@ -64,7 +60,7 @@
                       </div>
                       <div class="absolute opacity-100 group-hover:opacity-0 bottom-0 w-6 h-6 bg-white" :class="index%2 ? 'left-0 rounded-tr-2xl' : 'right-0 rounded-tl-2xl'">
                         <div class="flex w-full h-full bg-brand-midblue bg-opacity-30" :class="index%2 ? 'rounded-tr-2xl justify-start' : 'rounded-tl-2xl justify-end'">
-                          <i class="text-sm mt-auto" :class="`fa-${year.media.type} ${year.media.type === 'image' ? 'fas text-brand-midblue' : 'fab text-brand-red'}`" />
+                          <i class="text-sm mt-auto" :class="`fa-${year.media.type} ${year.media.type === 'youtube' ? 'fab text-brand-red' : 'fas text-brand-midblue'}`" />
                         </div>
                       </div>
                     </div>
@@ -75,7 +71,19 @@
             </div>
             <div class="h-0.5 w-[100px] bg-black my-auto mx-2"></div>
             <div class="absolute top-1/2 -translate-y-1/2 text-center text-xl" :class="index%2 ? '-left-[10px]' : '-right-[10px]'">
-              <i class="fad fa-circle" /></div>
+              <i class="fad fa-circle" />
+            </div>
+
+            <!--    Insert aditional row for 1985        -->
+            <div v-if="year.yearText === '1985'" class="absolute left-0 top-full w-full flex pr-2">
+              <div class="w-full">
+                <div class="w-0.5 h-[50px] bg-black mx-auto my-1" />
+                <div class="w-full bg-white rounded-xl">
+                  <div class="w-full bg-brand-midblue bg-opacity-30 rounded-xl text-base leading-5 p-3">In 1993, Ayers Rock was officially given the dual name "Ayers Rock/Uluru," recognising both its colonial and traditional Aṉangu names. In 2002, this was changed to "Uluru/Ayers Rock</div>
+                </div>
+              </div>
+              <div class="h-0.5 w-[100px] mx-2"></div>
+            </div>
           </div>
         </div>
 
@@ -121,14 +129,20 @@
             <i class="far fa-times text-brand-darkblue cursor-pointer my-auto" @click="closeMediaModal" />
           </div>
         </header>
+        <div v-if="currentMedia.pretext" class="text-white text-center text-lg mb-2 px-2 w-10/12 mx-auto">{{ currentMedia.pretext }}</div>
         <div class="flex justify-center">
           <img v-if="currentMedia && currentMedia.type === 'image'" :src="currentMedia.src" alt="" class="w-10/12 max-w-max max-h-[70vh]">
           <div v-if="currentMedia && currentMedia.type === 'youtube'" class="relative pb-[56.25%] h-0 w-[100%]">
             <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${currentMedia.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[95%] h-[95%] top-0 left-1/2 -translate-x-1/2" />
           </div>
+          <div v-if="currentMedia && currentMedia.type === 'video'" class="flex justify-center w-full my-2">
+            <video playsinline controls>
+              <source :src="currentMedia.src" type="video/mp4" class="w-full">
+            </video>
+          </div>
         </div>
         <div v-if="currentMedia && currentMedia.text" class="text-white text-center text-lg mt-2 px-2 w-10/12 mx-auto">
-          <p v-for="(line, index) in currentMedia.text" :class="index === 0 ? 'font-bold': ( index === 1 ? 'italic' : 'text-sm text-gray-400 leading-5 mt-3') ">{{ line }}</p>
+          <div v-for="(line, index) in currentMedia.text" v-html="line" :class="index === 0 ? 'font-bold mt-4': ( index === 1 ? 'italic mt-2' : 'text-sm text-gray-400 leading-5 mt-1')" />
         </div>
       </div>
     </div>

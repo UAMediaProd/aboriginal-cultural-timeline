@@ -79,7 +79,7 @@
               <div class="w-full">
                 <div class="w-0.5 h-[50px] bg-black mx-auto my-1" />
                 <div class="w-full bg-white rounded-xl">
-                  <div class="w-full bg-brand-midblue bg-opacity-30 rounded-xl text-base leading-5 p-3">In 1993, Ayers Rock was officially given the dual name "Ayers Rock/Uluru," recognising both its colonial and traditional Aṉangu names. In 2002, this was changed to "Uluru/Ayers Rock</div>
+                  <div class="w-full bg-brand-midblue bg-opacity-30 rounded-xl text-base leading-5 p-3">In 1993, Ayers Rock was officially given the dual name "Ayers Rock/Uluru," recognising both its colonial and traditional Aṉangu names. In 2002, this was changed to "Uluru/Ayers Rock".</div>
                 </div>
               </div>
               <div class="h-0.5 w-[100px] mx-2"></div>

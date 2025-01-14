@@ -31,7 +31,7 @@ export const ERA_DATA = [
   {
     id: 'wars',
     name: 'Frontier Wars',
-    yearText: '1788 - 1930\'s',
+    yearText: '1788 - 1930s',
     isSubEra: true,
     gapAfter: 0.5,
     summary: [

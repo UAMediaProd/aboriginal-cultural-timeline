@@ -123,17 +123,17 @@
 
 
     <div v-if="showMediaModal" class="fixed top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-black/80 backdrop-blur-sm" aria-modal="true" tabindex="-1">
-      <div id="modal" class="max-h-[95vh] w-11/12 p-4">
+      <div id="modal" class="max-h-[95vh] w-10/12 p-4 overflow-auto">
         <header class="flex justify-end opacity-50 hover:opacity-100 mb-2">
           <div class="flex justify-center w-6 h-6 rounded-full bg-gray-200">
             <i class="far fa-times text-brand-darkblue cursor-pointer my-auto" @click="closeMediaModal" />
           </div>
         </header>
         <div v-if="currentMedia.pretext" class="text-white text-center text-lg mb-2 px-2 w-10/12 mx-auto">{{ currentMedia.pretext }}</div>
-        <div class="flex justify-center">
-          <img v-if="currentMedia && currentMedia.type === 'image'" :src="currentMedia.src" alt="" class="w-10/12 max-w-max max-h-[70vh]">
+        <div class="flex justify-center w-11/12 mx-auto mb-1">
+          <img v-if="currentMedia && currentMedia.type === 'image'" :src="currentMedia.src" alt="" class="w-full max-w-max max-h-[70vh]">
           <div v-if="currentMedia && currentMedia.type === 'youtube'" class="relative pb-[56.25%] h-0 w-[100%]">
-            <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${currentMedia.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-[95%] h-[95%] top-0 left-1/2 -translate-x-1/2" />
+            <iframe title="YouTube video player" :src="`https://www.youtube.com/embed/${currentMedia.src}`" allowfullscreen allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" class="absolute w-full h-full top-0 left-1/2 -translate-x-1/2" />
           </div>
           <div v-if="currentMedia && currentMedia.type === 'video'" class="flex justify-center w-full my-2">
             <video playsinline controls>
@@ -141,8 +141,10 @@
             </video>
           </div>
         </div>
-        <div v-if="currentMedia && currentMedia.text" class="text-white text-center text-lg mt-2 px-2 w-10/12 mx-auto">
-          <div v-for="(line, index) in currentMedia.text" v-html="line" :class="index === 0 ? 'font-bold mt-4': ( index === 1 ? 'italic mt-2' : 'text-sm text-gray-400 leading-5 mt-1')" />
+        <div v-if="currentMedia && currentMedia.text" class="text-white text-center text-lg px-2 w-10/12 mx-auto">
+          <div v-for="(line, index) in currentMedia.text">
+            <div v-if="line" v-html="line" :class="index === 0 ? 'font-bold mt-3': ( index === 1 ? 'italic mt-2' : 'text-sm text-gray-400 leading-5 mt-1')" />
+          </div>
         </div>
       </div>
     </div>
